@@ -6,3 +6,6 @@
   display: flex;
   justify-content: center;
 }
+.times-list {
+  margin-top: 16px;
+}

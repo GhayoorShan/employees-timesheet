@@ -6,6 +6,7 @@ import EasyTimer from "easytimer.js";
 class Timer extends Component {
   constructor(props) {
     super(props);
+    console.log(props);
 
     var timer = new EasyTimer();
 
@@ -18,7 +19,6 @@ class Timer extends Component {
     this.startTimer = this.startTimer.bind(this);
     this.stopTimer = this.stopTimer.bind(this);
     this.pauseTimer = this.pauseTimer.bind(this);
-    this.resetTimer = this.resetTimer.bind(this);
 
     timer.addEventListener("secondsUpdated", this.onTimerUpdated.bind(this));
     timer.addEventListener("started", this.onTimerUpdated.bind(this));
@@ -44,6 +44,7 @@ class Timer extends Component {
     this.setState({
       ...this.state,
       timer_state: "stopped",
+      timer_text: "00:00:00",
     });
   }
   pauseTimer() {
@@ -52,13 +53,8 @@ class Timer extends Component {
       ...this.state,
       timer_state: "paused",
     });
-  }
-  resetTimer() {
-    this.state.timer.reset();
-    this.setState({
-      ...this.state,
-      timer_state: "ticking",
-    });
+    console.log(this.state.timer.getTimeValues().toString());
+    this.props.addTime(this.state.timer.getTimeValues());
   }
 
   render() {
@@ -70,20 +66,17 @@ class Timer extends Component {
         <div className="timer-buttons text-cneter">
           {this.state.timer_state !== "ticking" && (
             <button onClick={this.startTimer} className="btn btn-success">
-              Start
+              Clock In
             </button>
           )}
 
           {this.state.timer_state === "ticking" && (
             <button onClick={this.pauseTimer} className="btn btn-warning">
-              Pause
+              Clock Out
             </button>
           )}
           <button onClick={this.stopTimer} className="btn btn-danger">
             Stop
-          </button>
-          <button onClick={this.resetTimer} className="btn btn-primary">
-            Reset
           </button>
         </div>
       </div>
