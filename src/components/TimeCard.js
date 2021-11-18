@@ -22,7 +22,7 @@ class TimeCard extends Component {
   render() {
     return (
       <div className="time-card">
-        <h3 className="time-text">
+        <h3 className="time-text small">
           {"Clock Out  " + this.renderTime(this.props.time)}
         </h3>
       </div>
