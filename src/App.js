@@ -1,73 +1,46 @@
-import React, { Component } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useState } from "react";
 import "./App.css";
-
-import TimeList from "./containers/TimeListContainer";
-import Timer from "./containers/TimerContainer";
 
 import { store } from "./store";
 import { Provider } from "react-redux";
 
-import { runTest } from "./actions";
-
 import Login from "./components/Login";
 import Header from "./components/Header";
+import TimeList from "./containers/TimeListContainer";
+import Timer from "./containers/TimerContainer";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-    store.dispatch(runTest());
-  }
-  render() {
-    return (
-      <Provider store={store}>
-        <div className="App ">
-          <Header />
+function App() {
+  const [user, setUser] = useState();
 
-          <div className="d-flex justify-content-center flex-column">
-            <div className="row">
-              <div className="col-md-6 offset-md-3">
-                <div className="time-container">
-                  <Timer />
-                </div>
-                <div className="times-list">
-                  <TimeList />
+  return (
+    <Provider store={store}>
+      <div className="App ">
+        {!user ? (
+          <Login setUser={setUser} />
+        ) : (
+          <>
+            <Header user={user} />
+
+            <div className="d-flex justify-content-center flex-column">
+              <div className="row">
+                <div className="col-md-6 offset-md-3">
+                  <div className="time-container">
+                    <Timer />
+                  </div>
+                  <div className="times-list">
+                    <TimeList />
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </Provider>
-    );
-  }
+          </>
+        )}
+      </div>
+    </Provider>
+  );
 }
 
 export default App;
-
-/* <Router>
-  <Switch>
-    <Route path="">
-    <div className="Header">
-            <h1>EMPLOYEES TIMESHEET</h1>
-          </div>
-          <div className="d-flex flex-fill justify-content-center flex-column">
-            <div className="row">
-              <div className="col-md-6 offset-md-3">
-                <div className="time-container">
-                  <Timer />
-                </div>
-                <div className="times-list">
-                  <TimeList />
-                </div>
-              </div>
-            </div>
-          </div>
-    </Route>
-    <Route path="/">
-      <Login />
-    </Route>
-  </Switch>
-</Router>; */
 
 // // Import the functions you need from the SDKs you need
 // import { initializeApp } from "firebase/app";

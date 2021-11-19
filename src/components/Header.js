@@ -1,16 +1,24 @@
 import React from "react";
 import styled from "styled-components";
 
-function Header() {
+function Header(props) {
+  console.log("User in Appstate", props.user);
   return (
     <Container>
       <AppName>
         <h2>EMPLOYEES TIMESHEET</h2>
       </AppName>
       <UserContainer>
-        <Name>Shan</Name>
+        <Name>{props.user.name}</Name>
         <UserImage>
-          <img alt="user" src="https://i.imgur.com/6VBx3io.png" />
+          <img
+            alt="user"
+            src={
+              props.user.photo
+                ? props.user.photo
+                : "https://i.imgur.com/6VBx3io.png"
+            }
+          />
         </UserImage>
       </UserContainer>
     </Container>
