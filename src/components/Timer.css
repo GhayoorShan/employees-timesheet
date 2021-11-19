@@ -1,6 +1,6 @@
 .Timer {
-  border: 2px solid grey;
-  padding: 16px;
+  border: 1px solid grey;
+  padding: 6px;
   border-radius: 10px;
   margin-top: 50px;
 }

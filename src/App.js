@@ -23,7 +23,7 @@ function App() {
 
             <div className="d-flex justify-content-center flex-column">
               <div className="row">
-                <div className="col-md-6 offset-md-3">
+                <div className="col-md-6 col-sm-3 offset-md-3">
                   <div className="time-container">
                     <Timer />
                   </div>

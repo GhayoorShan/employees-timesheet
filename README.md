@@ -1,3 +1,18 @@
+# Breakout:
+
+A Timesheet application which will be used by employees to clock-in, clock-out and see a list of all their time entries when they arrive at work and leave.
+
+# Please describe your process for approaching the code challenge. What kind of planning did you do? Did your plans change as you began coding?
+
+At first, I make a plan to use React framework, class-based component, useState for state management, bootstrap for styling, easytimer.js for the timer and Mongo dB for database.
+As I began coding, I changed some of the above, like I used styled-components for a better experience with the components, I used functions instead of classes in some components. For state management later on I used redux which was my first time using redux. I also used firebase for hosting and Google authentication.
+
+# (I used two things at the same time because of giving a variety of approach and for my practice)
+
+# If you were given another day to work on this, how would you spend it? What if you were given a month?
+
+If I had another day I would like to save the time entries data for each user, and if had a month I would like to make it a fully functional app With a lot of similar features.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
