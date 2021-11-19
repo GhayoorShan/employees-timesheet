@@ -9,6 +9,17 @@ class TimeCard extends Component {
 
     this.renderTime = this.renderTime.bind(this);
   }
+  state = {
+    date: "",
+  };
+  componentDidMount() {
+    this.getDate();
+  }
+
+  getDate = () => {
+    var date = new Date().toLocaleString();
+    this.setState({ date });
+  };
 
   renderTime(time) {
     var new_timer = new EasyTimer();
@@ -18,13 +29,23 @@ class TimeCard extends Component {
 
     return time_string;
   }
+  // currentDateTime() {
+  //   var current = new Date().toLocaleString();
+  //   return (
+  //     <div>
+  //       <input type="text" value={current} readOnly="true" />
+  //     </div>
+  //   );
+  // }
 
   render() {
+    const { date } = this.state;
     return (
       <div className="time-card">
         <h3 className="time-text small">
           {"Clock Out  " + this.renderTime(this.props.time)}
         </h3>
+        <div>{date}</div>
       </div>
     );
   }

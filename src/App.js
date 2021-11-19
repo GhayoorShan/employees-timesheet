@@ -41,21 +41,3 @@ function App() {
 }
 
 export default App;
-
-// // Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// // TODO: Add SDKs for Firebase products that you want to use
-// // https://firebase.google.com/docs/web/setup#available-libraries
-
-// // Your web app's Firebase configuration
-// const firebaseConfig = {
-//   apiKey: "AIzaSyB7E4oCa3i9A1hqMBG7VP-NlJUwNHBRui0",
-//   authDomain: "employees-timesheet.firebaseapp.com",
-//   projectId: "employees-timesheet",
-//   storageBucket: "employees-timesheet.appspot.com",
-//   messagingSenderId: "457581140156",
-//   appId: "1:457581140156:web:34c291533be8884cca98b9"
-// };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
